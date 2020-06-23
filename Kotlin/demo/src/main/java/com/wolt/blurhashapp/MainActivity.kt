@@ -66,9 +66,9 @@ class Vm : ViewModel() {
             notifyBenchmark("Device: ${Build.MANUFACTURER} - ${Build.MODEL}")
             notifyBenchmark("OS: Android ${Build.VERSION.CODENAME} - API ${Build.VERSION.SDK_INT}")
         }
-        for (useArray in 1 downTo 0) {
+        for (useArray in 1 downTo 1) {
             val useArray1 = useArray == 1
-            for (useCache in 1 downTo 0) {
+            for (useCache in 1 downTo 1) {
                 val useCache1 = useCache == 1
                 executor.execute {
                     notifyBenchmark("-----------------------------------")
@@ -81,7 +81,7 @@ class Vm : ViewModel() {
                     executor.execute {
                         notifyBenchmark("width: $width, height: $height")
                     }
-                    for (n in 1..3) {
+                    for (n in 1..2) {
                         executor.execute {
                             benchmark(10.toDouble().pow(n).toInt(), width, height, blurHash, useArray1, useCache1)
                         }
